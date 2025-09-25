@@ -1,0 +1,59 @@
+
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #f4f4f4;
+    }
+
+    .uploadPost {
+        border: 2px dashed #ccc;
+        border-radius: 30px;
+        padding: 20px;
+        text-align: center;
+        background-color: #dfdfdf;
+        width: 350px;
+        height: 450px;
+        cursor: pointer;
+        display: flex;
+        flex-direction: column; /* Stack children vertically */
+        justify-content: center; /* Center main content vertically */
+        align-items: center; /* Center horizontally */
+        position: relative; /* Needed for absolute positioning of the bottom text */
+      }
+
+    .uploadPost .bottom-text {
+        position: absolute; /* Position the text at the bottom */
+        bottom: 20px; /* Distance from the bottom */
+        font-size: 12px; /* Smaller font size */
+        color: #000000; 
+        text-align: center; /* Center the text horizontally */
+        width: 80%; /* Text span is 80% */
+    }
+
+    .uploadPost:hover {
+      border-color: #6caffc;
+    }
+
+    .uploadPost p {
+      margin: 0;
+      color: #000000;
+    }
+
+    #fileInput {
+      display: none; /* Hide the default file input */
+    }
+
+    #imagePreview,
+    #videoPreview {
+      max-width: 300px;
+      margin-top: 20px;
+      display: none;
+    }
+
+    #videoPreview {
+      width: 100%;
+    }

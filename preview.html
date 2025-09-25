@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Image Preview</title>
+  <link rel="stylesheet" href="previewStyle.css">
+</head>
+<body>
+    <div id="previewContainer">
+      <img id="previewImage">
+      <div id="previewContent">
+          <h2 id="previewTitle"></h2>
+          <p id="previewDescription"></p>
+          <a id="previewLink" target="_blank">Visit Link</a>
+          <p id="previewBoard"></p>
+          <button type="button" id="DeleteMedia">Delete</button>
+      </div>
+  </div>
+  <script>
+    document.getElementById('DeleteMedia').addEventListener('click', function() {
+        const urlParams = new URLSearchParams(window.location.search);
+        const imageId = urlParams.get('id');
+
+        if (imageId !== null) {
+            let uploadedImages = JSON.parse(localStorage.getItem('uploadedImages')) || [];
+
+        // Check if the image ID is valid
+            if (imageId < uploadedImages.length) {
+                uploadedImages.splice(imageId, 1); // Remove the selected image
+                localStorage.setItem('uploadedImages', JSON.stringify(uploadedImages)); // Update localStorage
+
+                alert('Media deleted!');
+                window.location.href = 'index.html'; // Redirect back to main page
+            }
+        }
+    });
+    // Retrieve the image ID from the URL query parameters
+    const urlParams = new URLSearchParams(window.location.search);
+    const imageId = urlParams.get('id');
+
+    // Retrieve the image data from localStorage
+    const uploadedImages = JSON.parse(localStorage.getItem('uploadedImages')) || [];
+    const imageData = uploadedImages[imageId];
+
+    if (imageData) {
+      document.getElementById('previewImage').src = imageData.src;
+      document.getElementById('previewTitle').textContent = imageData.title;
+      document.getElementById('previewDescription').textContent = imageData.description;
+      document.getElementById('previewLink').href = imageData.link;
+      document.getElementById('previewBoard').textContent = `Board: ${imageData.board}`;
+    } else {
+      document.getElementById('previewContainer').innerHTML = '<p>Image not found.</p>';
+    }
+  </script>
+</body>
+</html>

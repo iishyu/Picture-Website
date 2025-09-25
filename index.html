@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Showcase</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <div class="search-bar">
+      <input type="text" placeholder="Search">
+    </div>
+    <div class="user-profile">
+      <img src="images/user.jpg" alt="User Profile">
+    </div>
+  </header>
+
+  <!-- Left Tab Bar -->
+  <nav class="left-tab-bar">
+    <ul>
+      <li><a href="#"><span>🏠</span></a></li>
+      <li><a href="upload.html"><span>➕</span></a></li>
+      <li><a href="signin.html"><span>💬</span></a></li>
+    </ul>
+  </nav>
+
+  <!-- Gallery Container -->
+  <div id="galleryContainer" class="gallery">
+    <!-- Images will be dynamically inserted here -->
+  </div>
+
+  <script>
+    window.onload = function() {
+      const galleryContainer = document.getElementById('galleryContainer');
+      const uploadedImages = JSON.parse(localStorage.getItem('uploadedImages')) || [];
+
+      uploadedImages.forEach((image, index) => {
+        // Create an anchor element linking to the preview page
+        const anchorElement = document.createElement('a');
+        anchorElement.href = `preview.html?id=${index}`; // Pass the image ID as a query parameter
+
+        // Create an image element
+        const imgElement = document.createElement('img');
+        imgElement.src = image.src;
+        imgElement.alt = "Uploaded Image";
+        imgElement.classList.add('gallery-item');
+
+        // Append the image to the anchor element
+        anchorElement.appendChild(imgElement);
+
+        // Append the anchor element to the gallery container
+        galleryContainer.appendChild(anchorElement);
+      });
+    };
+  </script>
+</body>
+</html>

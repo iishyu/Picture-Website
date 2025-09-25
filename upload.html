@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Upload</title>
+  <link rel="stylesheet" href="upload.css">
+</head>
+<body>
+  <div class="uploadPost" onclick="document.getElementById('fileInput').click()">
+    <p>Choose a file or drag and drop it here</p>
+    <p class="bottom-text">We recommend using high quality .jpg files less than 20 MB or .mp4 files less than 200 MB.</p>
+  </div>
+
+  <!-- File input for images and videos -->
+  <input type="file" id="fileInput" accept="image/*,video/*">
+
+  <!-- Preview for image -->
+  <img id="imagePreview">
+
+  <!-- Preview for video -->
+  <video id="videoPreview" controls></video>
+
+  <div class="post-input">
+    <label for="title">Title<input id="add-title" type="text" placeholder="Add a title" /></label>
+    <label for="description">Description<input id="add-description" type="text" placeholder="Add a detailed description" /></label>
+    <label for="link">Link<input id="add-link" type="text" placeholder="Add a link" /></label>
+    <label for="board">Board<input id="add-board" type="text" placeholder="Choose a board" /></label>
+  </div>
+
+  <button type="submit" id="UploadButton">Upload</button>
+
+  <script>
+    document.getElementById('fileInput').addEventListener('change', function(event) {
+      const file = event.target.files[0];
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+          const imagePreview = document.getElementById('imagePreview');
+          imagePreview.src = e.target.result;
+          imagePreview.style.display = 'block';
+        };
+        reader.readAsDataURL(file);
+      }
+    });
+
+    // Add an event listener for the submit button
+    document.getElementById('UploadButton').addEventListener('click', function() {
+      const file = document.getElementById('fileInput').files[0];
+      const title = document.getElementById('add-title').value;
+      const description = document.getElementById('add-description').value;
+      const link = document.getElementById('add-link').value;
+      const board = document.getElementById('add-board').value;
+
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+          // Create an object to store the image and its metadata
+          const imageData = {
+            src: e.target.result,
+            title: title,
+            description: description,
+            link: link,
+            board: board
+          };
+
+          // Save the image data to localStorage
+          let uploadedImages = JSON.parse(localStorage.getItem('uploadedImages')) || [];
+          uploadedImages.push(imageData);
+          localStorage.setItem('uploadedImages', JSON.stringify(uploadedImages));
+
+          alert('Media Uploaded!!');
+          window.location.href = 'index.html';
+        };
+        reader.readAsDataURL(file);
+      } else {
+        alert('Please select a file to upload.');
+      }
+    });
+  </script>
+</body>
+</html>

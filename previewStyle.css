@@ -1,0 +1,52 @@
+#previewContainer {
+    display: flex;
+    align-items: flex-start; 
+    font-family: Arial, sans-serif;   
+    background-color: rgb(255, 255, 255);
+    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+    width: 600px; 
+    padding: 20px; 
+    margin: 20px auto;
+    border-radius: 15px; 
+}
+
+#previewImage {
+    width: auto; 
+    height: auto; 
+    margin-right: 20px; 
+}
+
+#previewContent {
+    flex: 1;
+}
+
+#previewTitle{
+    font-weight: bold;
+    margin: 0 0 10px 0;
+}
+
+#previewDescription{
+    color: #666;
+}
+#previewLink{
+    display: block;
+    margin-top: 10px;
+    color: #007bff;
+    text-decoration: none;
+}
+
+#previewBoard{
+    margin-top: 10px;
+    color: #666;
+}
+
+#DeleteMedia{
+    align-self: flex-end; /* Align the button to the bottom right */
+    margin-top: 20px; /* Add space above the button */
+    padding: 10px 20px; /* Add padding to the button */
+    background-color: #eb7474; /* Red background for the button */
+    color: white; /* White text */
+    border: none; /* Remove border */
+    border-radius: 5px; /* Add rounded corners */
+    cursor: pointer; /* Change cursor to pointer on hover */
+}

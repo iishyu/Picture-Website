@@ -1,0 +1,104 @@
+/* Reset some default styles */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Header styling */
+  header {
+    display: flex; /* why does it have to be flex ???*/
+    justify-content: center; /* makes the search bar go left */ /*research more on this too ???*/
+    padding: 10px 20px;
+    position: fixed; /* Fix the header to the top */
+    left: 72px; /* Move the header to the right to avoid overlapping the tab bar */
+    right: 0; /*what does right zero mean???*/
+    z-index: 1000; /* Ensure the header stays above other content */
+  }
+  
+  
+  /* Search bar styling */
+  .search-bar {
+    display: flex;
+    justify-content: flex-start;
+    width: 100%; /* Adjust width or use percentage */
+    max-width: 90vw;
+  }
+  
+  .search-bar input {
+    padding: 15px; /*How big is search bar input*/
+    border: none; /*Makes it so theres no border*/
+    background-color: #e7e7e7;
+    /* round search bar */
+    border-radius: 15px;
+    width: 100%;
+  }
+  
+  /* User profile styling */
+  .user-profile img {
+    position: absolute; /* Positions the element relative to the viewport */
+    top: 10px; 
+    width: 48px;
+    right: 10px;
+    height: 48px;
+  }
+  
+  
+  /* Left Tab Bar Styling */
+  .left-tab-bar {
+    width: 72px; /* Width of the tab bar */
+    height: 100vh; /* Full height of the viewport */
+    background-color: #f8f8f8; /* Light gray background */
+    position: fixed; /* Fixed position so it stays in place */
+    top: 0;
+    left: 0;
+    padding-top: 60px; /* Space for the header */
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  }
+  
+  .left-tab-bar ul {
+    list-style: none; /* Remove bullet points */
+    padding: 0;
+    margin: 0;
+  }
+  
+  .left-tab-bar li {
+    padding: 20px 20px; /* space between each other, space out*/
+  }
+  
+  .left-tab-bar a {
+    text-decoration: none; /* Remove underline from buttons */
+    align-items: center; /* Center vertically */
+  }
+  
+  .left-tab-bar a:hover {
+    background-color: #e0e0e0; /* Light gray background on hover */
+    border-radius: 4px; /* Rounded corners on hover */
+    padding: 10px 10px /* Padding to make the hover area bigger */
+  }
+  
+  /* Search bar styling */
+  .UserInfo {
+        display: flex;
+        flex-direction: column; /* Stack children vertically */
+        justify-content: center; /* Center vertically with the page */
+        align-items: center; /* Center horizontally */
+        height: 100vh; /* Make the body take up the full viewport height */
+        font-family: Arial, sans-serif; 
+        background-color: #f4f4f4; 
+  }
+
+    
+  button {
+    width: 5%;
+    padding: 10px;
+    background-color: #e4e4e4;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  button:hover {
+    background-color: #adadad;
+  }

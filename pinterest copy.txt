@@ -1,0 +1,12 @@
+pinterest copy
+
+what needs to be done:
+registration
+uploading pictures functionality
+buttons on left task bar need to go where they are actually going
+make it so top right user profile can be updated and also when clicked will direct user to their home page
+
+sign up:
+reconfirm password
+black outline
+birthday authentication

@@ -1,0 +1,94 @@
+/* Reset some default styles */
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+/* Header styling */
+header {
+  display: flex;
+  justify-content: space-between; /* Space out search bar and user profile */
+  align-items: center; /* Vertically center items */
+  padding: 10px 20px;
+  position: fixed; /* Fix the header to the top */
+  top: 0;
+  left: 73px; /* Move the header to the right to avoid overlapping the tab bar */
+  right: 0; /* Stretch the header to the right edge */
+  background-color: #fff; /* Add a background color to the header */
+  z-index: 1000; /* Ensure the header stays above other content */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add a shadow for separation */
+}
+
+/* Search bar styling */
+.search-bar {
+  flex: 1; /* Allow the search bar to grow and take up available space */
+  max-width: 90vw; /* Limit the maximum width */
+  margin-right: 20px; /* Add space between search bar and user profile */
+}
+
+.search-bar input {
+  padding: 15px; /* Height of the search bar input */
+  border: none; /* Remove border */
+  background-color: #e7e7e7; /* Light gray background */
+  border-radius: 15px; /* Rounded corners */
+  width: 100%; /* Take up full width of the search-bar container */
+}
+
+/* User profile styling */
+.user-profile img {
+  width: 48px; /* Set width of the profile image */
+  height: 48px; /* Set height of the profile image */
+  border-radius: 50%; /* Make the image circular */
+}
+
+/* Left Tab Bar Styling */
+.left-tab-bar {
+  width: 72px; /* Width of the tab bar */
+  height: 100vh; /* Full height of the viewport */
+  background-color: #f8f8f8; /* Light gray background */
+  position: fixed; /* Fixed position so it stays in place */
+  top: 0;
+  left: 0;
+  padding-top: 60px; /* Space for the header */
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+.left-tab-bar ul {
+  list-style: none; /* Remove bullet points */
+  padding: 0;
+  margin: 0;
+}
+
+.left-tab-bar li {
+  padding: 20px; /* Space between each item */
+}
+
+.left-tab-bar a {
+  text-decoration: none; /* Remove underline from links */
+  display: flex; /* Center icons vertically */
+  justify-content: center; /* Center icons horizontally */
+  align-items: center; /* Center icons vertically */
+}
+
+.left-tab-bar a:hover {
+  background-color: #e0e0e0; /* Light gray background on hover */
+  border-radius: 4px; /* Rounded corners on hover */
+}
+
+/* Gallery Styling */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 10px;
+  padding: 20px;
+  margin-left: 72px; /* Adjust based on your left tab bar width */
+  margin-top: 70px; /* Adjust based on the header height */
+}
+
+.gallery-item {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  object-fit: cover;
+}
